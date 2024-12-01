@@ -403,6 +403,15 @@ namespace Mastermind
                 }
             }
         }
+
+        private void mastermindWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if(MessageBox.Show("Continue closing the window?", $"Attempt {attemptCounter}/10", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                e.Cancel = false;
+            };
+        }
     }
 }
 
