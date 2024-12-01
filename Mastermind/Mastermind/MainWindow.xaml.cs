@@ -25,6 +25,7 @@ namespace Mastermind
         int attemptCounter = 1;
         int secondsCounter = 0;
         int score = 100;
+        bool quitBool = false;
         private DispatcherTimer timer = new DispatcherTimer();
         List<Label> label1List = new List<Label>();
         List<Label> label2List = new List<Label>();
@@ -139,6 +140,35 @@ namespace Mastermind
                 attemptLabel.Content = $"Attempt: {attemptCounter}";
                 score -= 8;
                 scoreLabel.Content = $"Score: {score}";
+                if (attemptCounter > 10)
+                {
+                    MessageBoxResult result = MessageBox.Show($"You have failed! The correct code was: {colour1} {colour2} {colour3} {colour4}.\nWould you like to try again?", "FAILED", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            GenerateColours(out colour1, out colour2, out colour3, out colour4);
+                            solutionTextBox.Text = $"{colour1}, {colour2}, {colour3}, {colour4}";
+                            attemptCounter = 1;
+                            attemptLabel.Content = "Attempt: 1";
+                            secondsCounter = 0;
+                            timeLabel.Content = "Seconds: 0";
+                            score = 100;
+                            scoreLabel.Content = "Score: 100";
+                            comboBox1.SelectedIndex = -1;
+                            comboBox2.SelectedIndex = -1;
+                            comboBox3.SelectedIndex = -1;
+                            comboBox4.SelectedIndex = -1;
+                            Clear10Labels(label1List);
+                            Clear10Labels(label2List);
+                            Clear10Labels(label3List);
+                            Clear10Labels(label4List);
+                            break;
+                        case MessageBoxResult.No:
+                            quitBool = true;
+                            mastermindWindow.Close();
+                            break;
+                    }
+                }
             }
             timeLabel.Content = $"Seconds: {secondsCounter}";
         }
@@ -154,6 +184,14 @@ namespace Mastermind
             labelList.Add(label8);
             labelList.Add(label9);
             labelList.Add(label10);
+        }
+        private void Clear10Labels(List<Label> labelList)
+        {
+            for (int i=0; i<10; i++)
+            {
+                labelList[i].Background = Brushes.Transparent;
+                labelList[i].BorderBrush = Brushes.Transparent;
+            }
         }
         //EVENT METHODS
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -274,6 +312,7 @@ namespace Mastermind
 
         private void checkButton_Click(object sender, RoutedEventArgs e)
         {
+
             int indexAttempt = attemptCounter - 1;
             attemptCounter += 1;
             attemptLabel.Content = $"Attempt: {attemptCounter}";
@@ -287,7 +326,6 @@ namespace Mastermind
             GenerateBackgrounds(label1List[indexAttempt], label2List[indexAttempt], label3List[indexAttempt], label4List[indexAttempt], out backgroundList);
             if (backgroundList.Contains("Invalid"))
             {
-                MessageBox.Show("At least one of the combo boxes is empty, try again.");
                 label1List[indexAttempt].Background = Brushes.Black;
                 label2List[indexAttempt].Background = Brushes.Black;
                 label3List[indexAttempt].Background = Brushes.Black;
@@ -298,6 +336,37 @@ namespace Mastermind
                 comboBox4.SelectedIndex = -1;
                 score -= 8;
                 scoreLabel.Content = $"Score: {score}";
+                if (attemptCounter > 10)
+                {
+                    MessageBoxResult result = MessageBox.Show($"You have failed! The correct code was: {colour1} {colour2} {colour3} {colour4}.\nWould you like to try again?", "FAILED", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            GenerateColours(out colour1, out colour2, out colour3, out colour4);
+                            solutionTextBox.Text = $"{colour1}, {colour2}, {colour3}, {colour4}";
+                            attemptCounter = 1;
+                            attemptLabel.Content = "Attempt: 1";
+                            secondsCounter = 0;
+                            timeLabel.Content = "Seconds: 0";
+                            score = 100;
+                            scoreLabel.Content = "Score: 100";
+                            comboBox1.SelectedIndex = -1;
+                            comboBox2.SelectedIndex = -1;
+                            comboBox3.SelectedIndex = -1;
+                            comboBox4.SelectedIndex = -1;
+                            Clear10Labels(label1List);
+                            Clear10Labels(label2List);
+                            Clear10Labels(label3List);
+                            Clear10Labels(label4List);
+                            break;
+                        case MessageBoxResult.No:
+                            quitBool = true;
+                            mastermindWindow.Close();
+                            break;
+                    }
+                    return;
+                }
+                MessageBox.Show("At least one of the combo boxes is empty, try again.");
                 return;
             }
             List<string> borderList = new List<string>();
@@ -383,6 +452,36 @@ namespace Mastermind
                         break;
                 }
             }
+            if (borderList[0] == "DarkRed" && borderList[1] == "DarkRed" && borderList[2] == "DarkRed" && borderList[3] == "DarkRed")
+            {
+                MessageBoxResult result = MessageBox.Show($"The correct code has been found in {attemptCounter.ToString()} attempts. \nWould you like to play again?", "Winner", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        GenerateColours(out colour1, out colour2, out colour3, out colour4);
+                        solutionTextBox.Text = $"{colour1}, {colour2}, {colour3}, {colour4}";
+                        attemptCounter = 1;
+                        attemptLabel.Content = "Attempt: 1";
+                        secondsCounter = 0;
+                        timeLabel.Content = "Seconds: 0";
+                        score = 100;
+                        scoreLabel.Content = "Score: 100";
+                        comboBox1.SelectedIndex = -1;
+                        comboBox2.SelectedIndex = -1;
+                        comboBox3.SelectedIndex = -1;
+                        comboBox4.SelectedIndex = -1;
+                        Clear10Labels(label1List);
+                        Clear10Labels(label2List);
+                        Clear10Labels(label3List);
+                        Clear10Labels(label4List);
+                        break;
+                    case MessageBoxResult.No:
+                        quitBool = true;
+                        mastermindWindow.Close();
+                        break;
+                }
+                return;
+            }
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
@@ -406,11 +505,14 @@ namespace Mastermind
 
         private void mastermindWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = true;
-            if(MessageBox.Show("Continue closing the window?", $"Attempt {attemptCounter}/10", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (quitBool == false)
             {
-                e.Cancel = false;
-            };
+                e.Cancel = true;
+                if (MessageBox.Show("Continue closing the window?", $"Attempt {attemptCounter}/10", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    e.Cancel = false;
+                };
+            }
         }
     }
 }

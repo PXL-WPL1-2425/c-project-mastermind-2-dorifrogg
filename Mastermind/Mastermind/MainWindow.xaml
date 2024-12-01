@@ -46,7 +46,7 @@
         </ComboBox>
         <Button x:Name="checkButton" Content="Check Code" HorizontalAlignment="Left" Margin="502,11,0,0" VerticalAlignment="Top" Width="174" Grid.Column="1" Click="checkButton_Click"/>
         <Label x:Name="attemptLabel" Content="Attempt: 1" HorizontalAlignment="Left" Margin="502,36,0,0" VerticalAlignment="Top" Width="120" Height="29" Grid.Column="1" IsEnabled="False" Foreground="Black"/>
-        <TextBox x:Name="solutionTextBox" Visibility="Hidden" TextAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Margin="189,404,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="20"/>
+        <TextBox x:Name="solutionTextBox" Visibility="Hidden" TextAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Margin="57,352,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="20"/>
         <Label x:Name="timeLabel" Content="Seconds: 0" HorizontalAlignment="Left" Margin="502,59,0,0" VerticalAlignment="Top" Width="120" Height="29" Grid.Column="1" IsEnabled="False" Foreground="Black"/>
         <Label x:Name="scoreLabel" Content="Score: 100" HorizontalAlignment="Left" Margin="502,84,0,0" VerticalAlignment="Top" Width="120" Height="29" Grid.Column="1" IsEnabled="False" Foreground="Black"/>
 
