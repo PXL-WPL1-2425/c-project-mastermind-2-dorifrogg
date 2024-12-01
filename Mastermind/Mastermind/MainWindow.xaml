@@ -45,14 +45,50 @@
             <ComboBoxItem Content="Blue"/>
         </ComboBox>
         <Button x:Name="checkButton" Content="Check Code" HorizontalAlignment="Left" Margin="502,11,0,0" VerticalAlignment="Top" Width="174" Grid.Column="1" Click="checkButton_Click"/>
-        <Label x:Name="colour1Label" Content="" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="96" IsEnabled="False" BorderThickness="5px"/>
-        <Label x:Name="colour2Label" Content="" HorizontalAlignment="Left" Margin="82,47,0,0" VerticalAlignment="Top" Width="120" Height="96" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
-        <Label x:Name="colour3Label" Content="" HorizontalAlignment="Left" Margin="208,47,0,0" VerticalAlignment="Top" Width="120" Height="96" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
-        <Label x:Name="colour4Label" Content="" HorizontalAlignment="Left" Margin="332,47,0,0" VerticalAlignment="Top" Width="120" Height="96" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
         <Label x:Name="attemptLabel" Content="Attempt: 1" HorizontalAlignment="Left" Margin="502,36,0,0" VerticalAlignment="Top" Width="120" Height="29" Grid.Column="1" IsEnabled="False" Foreground="Black"/>
-
+        <TextBox x:Name="solutionTextBox" Visibility="Hidden" TextAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Margin="189,404,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="20"/>
         <Label x:Name="timeLabel" Content="Seconds: 0" HorizontalAlignment="Left" Margin="502,65,0,0" VerticalAlignment="Top" Width="120" Height="29" Grid.Column="1" IsEnabled="False" Foreground="Black"/>
-        <TextBox x:Name="solutionTextBox" Visibility="Hidden" TextAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Margin="189,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="20"/>
+        
+        <Label x:Name="colour1Label1" Content="" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label1" Content="" HorizontalAlignment="Left" Margin="82,45,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label1" Content="" HorizontalAlignment="Left" Margin="208,45,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label1" Content="" HorizontalAlignment="Left" Margin="332,45,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label2" Content="" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label2" Content="" HorizontalAlignment="Left" Margin="82,70,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label2" Content="" HorizontalAlignment="Left" Margin="208,70,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label2" Content="" HorizontalAlignment="Left" Margin="332,70,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label3" Content="" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label3" Content="" HorizontalAlignment="Left" Margin="82,95,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label3" Content="" HorizontalAlignment="Left" Margin="208,95,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label3" Content="" HorizontalAlignment="Left" Margin="332,95,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label4" Content="" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label4" Content="" HorizontalAlignment="Left" Margin="82,120,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label4" Content="" HorizontalAlignment="Left" Margin="208,120,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label4" Content="" HorizontalAlignment="Left" Margin="332,120,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label5" Content="" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label5" Content="" HorizontalAlignment="Left" Margin="82,145,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label5" Content="" HorizontalAlignment="Left" Margin="208,145,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label5" Content="" HorizontalAlignment="Left" Margin="332,145,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label6" Content="" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label6" Content="" HorizontalAlignment="Left" Margin="82,170,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label6" Content="" HorizontalAlignment="Left" Margin="208,170,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label6" Content="" HorizontalAlignment="Left" Margin="332,170,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label7" Content="" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label7" Content="" HorizontalAlignment="Left" Margin="82,195,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label7" Content="" HorizontalAlignment="Left" Margin="208,195,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label7" Content="" HorizontalAlignment="Left" Margin="332,195,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label8" Content="" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label8" Content="" HorizontalAlignment="Left" Margin="82,220,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label8" Content="" HorizontalAlignment="Left" Margin="208,220,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label8" Content="" HorizontalAlignment="Left" Margin="332,220,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label9" Content="" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label9" Content="" HorizontalAlignment="Left" Margin="82,245,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label9" Content="" HorizontalAlignment="Left" Margin="208,245,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label9" Content="" HorizontalAlignment="Left" Margin="332,245,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour1Label10" Content="" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" Height="18" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour2Label10" Content="" HorizontalAlignment="Left" Margin="82,270,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour3Label10" Content="" HorizontalAlignment="Left" Margin="208,270,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
+        <Label x:Name="colour4Label10" Content="" HorizontalAlignment="Left" Margin="332,270,0,0" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1" IsEnabled="False" BorderThickness="5px"/>
 
 
     </Grid>

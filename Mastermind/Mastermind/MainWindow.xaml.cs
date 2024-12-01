@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Collections.Generic;
 
 namespace Mastermind
 {
@@ -24,11 +25,19 @@ namespace Mastermind
         int attemptCounter = 1;
         int secondsCounter = 0;
         private DispatcherTimer timer = new DispatcherTimer();
+        List<Label> label1List = new List<Label>();
+        List<Label> label2List = new List<Label>();
+        List<Label> label3List = new List<Label>();
+        List<Label> label4List = new List<Label>();
         public MainWindow()
         {
             InitializeComponent();
             GenerateColours(out colour1, out colour2, out colour3, out colour4);
             solutionTextBox.Text += $"{colour1}, {colour2}, {colour3}, {colour4}";
+            Add10ItemsToLabelList(label1List, colour1Label1, colour1Label2, colour1Label3, colour1Label4, colour1Label5, colour1Label6, colour1Label7, colour1Label8, colour1Label9, colour1Label10);
+            Add10ItemsToLabelList(label2List, colour2Label1, colour2Label2, colour2Label3, colour2Label4, colour2Label5, colour2Label6, colour2Label7, colour2Label8, colour2Label9, colour2Label10);
+            Add10ItemsToLabelList(label3List, colour3Label1, colour3Label2, colour3Label3, colour3Label4, colour3Label5, colour3Label6, colour3Label7, colour3Label8, colour3Label9, colour3Label10);
+            Add10ItemsToLabelList(label4List, colour4Label1, colour4Label2, colour4Label3, colour4Label4, colour4Label5, colour4Label6, colour4Label7, colour4Label8, colour4Label9, colour4Label10);
             timer.Tick += Countdown; //Event koppelen
             timer.Interval = new TimeSpan(0, 0, 1); //Elke seconde
             timer.Start(); //Timer starten
@@ -112,40 +121,62 @@ namespace Mastermind
         
         private void Countdown(object sender, EventArgs e)
         {
+            
             secondsCounter++;
             if (secondsCounter % 10 == 0)
             {
                 secondsCounter = 0;
+                label1List[attemptCounter-1].Background = Brushes.Black;
+                label2List[attemptCounter-1].Background = Brushes.Black;
+                label3List[attemptCounter - 1].Background = Brushes.Black;
+                label4List[attemptCounter - 1].Background = Brushes.Black;
+                comboBox1.SelectedIndex = -1;
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                comboBox4.SelectedIndex = -1;
                 attemptCounter++;
                 attemptLabel.Content = $"Attempt: {attemptCounter}";
             }
             timeLabel.Content = $"Seconds: {secondsCounter}";
         }
-
+        private void Add10ItemsToLabelList(List<Label> labelList, Label label1, Label label2, Label label3, Label label4, Label label5, Label label6, Label label7, Label label8, Label label9, Label label10)
+        {
+            labelList.Add(label1);
+            labelList.Add(label2);
+            labelList.Add(label3);
+            labelList.Add(label4);
+            labelList.Add(label5);
+            labelList.Add(label6);
+            labelList.Add(label7);
+            labelList.Add(label8);
+            labelList.Add(label9);
+            labelList.Add(label10);
+        }
         //EVENT METHODS
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int indexAttempt = attemptCounter - 1;
             if (comboBox1.SelectedIndex != -1)
             {
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
-                        colour1Label.Background = Brushes.Red;
+                        label1List[indexAttempt].Background = Brushes.Red;
                         break;
                     case 1:
-                        colour1Label.Background = Brushes.Yellow;
+                        label1List[indexAttempt].Background = Brushes.Yellow;
                         break;
                     case 2:
-                        colour1Label.Background = Brushes.Orange;
+                        label1List[indexAttempt].Background = Brushes.Orange;
                         break;
                     case 3:
-                        colour1Label.Background = Brushes.White;
+                        label1List[indexAttempt].Background = Brushes.White;
                         break;
                     case 4:
-                        colour1Label.Background = Brushes.Green;
+                        label1List[indexAttempt].Background = Brushes.Green;
                         break;
                     case 5:
-                        colour1Label.Background = Brushes.Blue;
+                        label1List[indexAttempt].Background = Brushes.Blue;
                         break;
                 }
             }
@@ -153,27 +184,28 @@ namespace Mastermind
 
         private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int indexAttempt = attemptCounter - 1;
             if (comboBox2.SelectedIndex != -1)
             {
                 switch (comboBox2.SelectedIndex)
                 {
                     case 0:
-                        colour2Label.Background = Brushes.Red;
+                        label2List[indexAttempt].Background = Brushes.Red;
                         break;
                     case 1:
-                        colour2Label.Background = Brushes.Yellow;
+                        label2List[indexAttempt].Background = Brushes.Yellow;
                         break;
                     case 2:
-                        colour2Label.Background = Brushes.Orange;
+                        label2List[indexAttempt].Background = Brushes.Orange;
                         break;
                     case 3:
-                        colour2Label.Background = Brushes.White;
+                        label2List[indexAttempt].Background = Brushes.White;
                         break;
                     case 4:
-                        colour2Label.Background = Brushes.Green;
+                        label2List[indexAttempt].Background = Brushes.Green;
                         break;
                     case 5:
-                        colour2Label.Background = Brushes.Blue;
+                        label2List[indexAttempt].Background = Brushes.Blue;
                         break;
                 }
             }
@@ -181,27 +213,28 @@ namespace Mastermind
 
         private void comboBox3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int indexAttempt = attemptCounter - 1;
             if (comboBox3.SelectedIndex != -1)
             {
                 switch (comboBox3.SelectedIndex)
                 {
                     case 0:
-                        colour3Label.Background = Brushes.Red;
+                        label3List[indexAttempt].Background = Brushes.Red;
                         break;
                     case 1:
-                        colour3Label.Background = Brushes.Yellow;
+                        label3List[indexAttempt].Background = Brushes.Yellow;
                         break;
                     case 2:
-                        colour3Label.Background = Brushes.Orange;
+                        label3List[indexAttempt].Background = Brushes.Orange;
                         break;
                     case 3:
-                        colour3Label.Background = Brushes.White;
+                        label3List[indexAttempt].Background = Brushes.White;
                         break;
                     case 4:
-                        colour3Label.Background = Brushes.Green;
+                        label3List[indexAttempt].Background = Brushes.Green;
                         break;
                     case 5:
-                        colour3Label.Background = Brushes.Blue;
+                        label3List[indexAttempt].Background = Brushes.Blue;
                         break;
                 }
             }
@@ -209,27 +242,28 @@ namespace Mastermind
 
         private void comboBox4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int indexAttempt = attemptCounter - 1;
             if (comboBox4.SelectedIndex != -1)
             {
                 switch (comboBox4.SelectedIndex)
                 {
                     case 0:
-                        colour4Label.Background = Brushes.Red;
+                        label4List[indexAttempt].Background = Brushes.Red;
                         break;
                     case 1:
-                        colour4Label.Background = Brushes.Yellow;
+                        label4List[indexAttempt].Background = Brushes.Yellow;
                         break;
                     case 2:
-                        colour4Label.Background = Brushes.Orange;
+                        label4List[indexAttempt].Background = Brushes.Orange;
                         break;
                     case 3:
-                        colour4Label.Background = Brushes.White;
+                        label4List[indexAttempt].Background = Brushes.White;
                         break;
                     case 4:
-                        colour4Label.Background = Brushes.Green;
+                        label4List[indexAttempt].Background = Brushes.Green;
                         break;
                     case 5:
-                        colour4Label.Background = Brushes.Blue;
+                        label4List[indexAttempt].Background = Brushes.Blue;
                         break;
                 }
             }
@@ -237,6 +271,7 @@ namespace Mastermind
 
         private void checkButton_Click(object sender, RoutedEventArgs e)
         {
+            int indexAttempt = attemptCounter - 1;
             attemptCounter += 1;
             attemptLabel.Content = $"Attempt: {attemptCounter}";
             secondsCounter = 0;
@@ -246,10 +281,18 @@ namespace Mastermind
             colourList.Add(colour3);
             colourList.Add(colour4);
             List<string> backgroundList = new List<string>();
-            GenerateBackgrounds(colour1Label, colour2Label, colour3Label, colour4Label, out backgroundList);
+            GenerateBackgrounds(label1List[indexAttempt], label2List[indexAttempt], label3List[indexAttempt], label4List[indexAttempt], out backgroundList);
             if (backgroundList.Contains("Invalid"))
             {
                 MessageBox.Show("At least one of the combo boxes is empty, try again.");
+                label1List[indexAttempt].Background = Brushes.Black;
+                label2List[indexAttempt].Background = Brushes.Black;
+                label3List[indexAttempt].Background = Brushes.Black;
+                label4List[indexAttempt].Background = Brushes.Black;
+                comboBox1.SelectedIndex = -1;
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                comboBox4.SelectedIndex = -1;
                 return;
             }
             List<string> borderList = new List<string>();
@@ -272,49 +315,53 @@ namespace Mastermind
                     case 0:
                         if (borderList[i] == "DarkRed")
                         {
-                            colour1Label.BorderBrush = Brushes.DarkRed;
+                            label1List[indexAttempt].BorderBrush = Brushes.DarkRed;
                         }
                         else if (borderList[i] == "Wheat")
                         {
-                            colour1Label.BorderBrush = Brushes.Wheat;
+                            label1List[indexAttempt].BorderBrush = Brushes.Wheat;
                         }
-                        else colour1Label.BorderBrush = Brushes.Transparent;
+                        else label1List[indexAttempt].BorderBrush = Brushes.Transparent;
                         break;
                     case 1:
                         if (borderList[i] == "DarkRed")
                         {
-                            colour2Label.BorderBrush = Brushes.DarkRed;
+                            label2List[indexAttempt].BorderBrush = Brushes.DarkRed;
                         }
                         else if (borderList[i] == "Wheat")
                         {
-                            colour2Label.BorderBrush = Brushes.Wheat;
+                            label2List[indexAttempt].BorderBrush = Brushes.Wheat;
                         }
-                        else colour2Label.BorderBrush = Brushes.Transparent;
+                        else label2List[indexAttempt].BorderBrush = Brushes.Transparent;
                         break;
                     case 2:
                         if (borderList[i] == "DarkRed")
                         {
-                            colour3Label.BorderBrush = Brushes.DarkRed;
+                            label3List[indexAttempt].BorderBrush = Brushes.DarkRed;
                         }
                         else if (borderList[i] == "Wheat")
                         {
-                            colour3Label.BorderBrush = Brushes.Wheat;
+                            label3List[indexAttempt].BorderBrush = Brushes.Wheat;
                         }
-                        else colour3Label.BorderBrush = Brushes.Transparent;
+                        else label3List[indexAttempt].BorderBrush = Brushes.Transparent;
                         break;
                     case 3:
                         if (borderList[i] == "DarkRed")
                         {
-                            colour4Label.BorderBrush = Brushes.DarkRed;
+                            label4List[indexAttempt].BorderBrush = Brushes.DarkRed;
                         }
                         else if (borderList[i] == "Wheat")
                         {
-                            colour4Label.BorderBrush = Brushes.Wheat;
+                            label4List[indexAttempt].BorderBrush = Brushes.Wheat;
                         }
-                        else colour4Label.BorderBrush = Brushes.Transparent;
+                        else label4List[indexAttempt].BorderBrush = Brushes.Transparent;
                         break;
                 }
             }
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            comboBox4.SelectedIndex = -1;
         }
         private void ToggleDebug(object sender, KeyEventArgs e)
         {
@@ -332,3 +379,4 @@ namespace Mastermind
         }
     }
 }
+
