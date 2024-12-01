@@ -24,6 +24,7 @@ namespace Mastermind
         string colour4;
         int attemptCounter = 1;
         int secondsCounter = 0;
+        int score = 100;
         private DispatcherTimer timer = new DispatcherTimer();
         List<Label> label1List = new List<Label>();
         List<Label> label2List = new List<Label>();
@@ -136,6 +137,8 @@ namespace Mastermind
                 comboBox4.SelectedIndex = -1;
                 attemptCounter++;
                 attemptLabel.Content = $"Attempt: {attemptCounter}";
+                score -= 8;
+                scoreLabel.Content = $"Score: {score}";
             }
             timeLabel.Content = $"Seconds: {secondsCounter}";
         }
@@ -293,6 +296,8 @@ namespace Mastermind
                 comboBox2.SelectedIndex = -1;
                 comboBox3.SelectedIndex = -1;
                 comboBox4.SelectedIndex = -1;
+                score -= 8;
+                scoreLabel.Content = $"Score: {score}";
                 return;
             }
             List<string> borderList = new List<string>();
@@ -320,8 +325,13 @@ namespace Mastermind
                         else if (borderList[i] == "Wheat")
                         {
                             label1List[indexAttempt].BorderBrush = Brushes.Wheat;
+                            score -= 1;
                         }
-                        else label1List[indexAttempt].BorderBrush = Brushes.Transparent;
+                        else
+                        {
+                            label1List[indexAttempt].BorderBrush = Brushes.Transparent;
+                            score -= 2;
+                        }
                         break;
                     case 1:
                         if (borderList[i] == "DarkRed")
@@ -331,8 +341,13 @@ namespace Mastermind
                         else if (borderList[i] == "Wheat")
                         {
                             label2List[indexAttempt].BorderBrush = Brushes.Wheat;
+                            score -= 1;
                         }
-                        else label2List[indexAttempt].BorderBrush = Brushes.Transparent;
+                        else
+                        {
+                            label2List[indexAttempt].BorderBrush = Brushes.Transparent;
+                            score -= 2;
+                        }
                         break;
                     case 2:
                         if (borderList[i] == "DarkRed")
@@ -342,8 +357,13 @@ namespace Mastermind
                         else if (borderList[i] == "Wheat")
                         {
                             label3List[indexAttempt].BorderBrush = Brushes.Wheat;
+                            score -= 1;
                         }
-                        else label3List[indexAttempt].BorderBrush = Brushes.Transparent;
+                        else
+                        {
+                            label3List[indexAttempt].BorderBrush = Brushes.Transparent;
+                            score -= 2;
+                        }
                         break;
                     case 3:
                         if (borderList[i] == "DarkRed")
@@ -353,8 +373,13 @@ namespace Mastermind
                         else if (borderList[i] == "Wheat")
                         {
                             label4List[indexAttempt].BorderBrush = Brushes.Wheat;
+                            score -= 1;
                         }
-                        else label4List[indexAttempt].BorderBrush = Brushes.Transparent;
+                        else
+                        {
+                            label4List[indexAttempt].BorderBrush = Brushes.Transparent;
+                            score -= 2;
+                        }
                         break;
                 }
             }
@@ -362,6 +387,7 @@ namespace Mastermind
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
+            scoreLabel.Content = $"Score: {score}";
         }
         private void ToggleDebug(object sender, KeyEventArgs e)
         {
